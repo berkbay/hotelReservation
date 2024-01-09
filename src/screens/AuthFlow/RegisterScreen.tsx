@@ -32,7 +32,6 @@ const RegisterScreen = () => {
   }, [user]);
 
   function handleDisableButton() {
-    console.log("why");
     return !(
       user &&
       user?.tcNo &&
@@ -48,8 +47,6 @@ const RegisterScreen = () => {
   const handleOnChangeInput = (text: string, field: string) => {
     setUser({ ...user, [field]: text });
   };
-
-  // console.log(handleDisableButton());
 
   return (
     <>

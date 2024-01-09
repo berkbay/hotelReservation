@@ -10,16 +10,12 @@ const Loader = (props: any) => {
     (state: RootReducerState) => state.globalLoading,
   );
 
-  console.log("loading", loading);
-
   return (
     <Modal
       transparent
       animationType="none"
       visible={loading}
-      onRequestClose={() => {
-        // console.log("close modal");
-      }}
+      onRequestClose={() => {}}
     >
       <View style={styles.modalBackground}>
         <View style={styles.activityIndicatorWrapper}>
