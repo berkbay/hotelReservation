@@ -1,11 +1,14 @@
-import { Text, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  TouchableOpacityProps,
+} from "react-native";
 
 import { themeColor } from "../utils/styles";
 
-interface Props {
+interface Props extends TouchableOpacityProps {
   title: string;
-  onPress: Function;
-  disabled?: boolean;
 }
 const Button: React.FC<Props> = (props) => {
   const { title, onPress, disabled, ...restOfProps } = props;
@@ -17,7 +20,7 @@ const Button: React.FC<Props> = (props) => {
         styles.buttonContainer,
         { backgroundColor: disabled ? grey : secondaryColor },
       ]}
-      onPress={() => onPress()}
+      onPress={onPress}
       disabled={disabled}
       {...restOfProps}
     >
@@ -34,12 +37,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingVertical: 12,
     paddingHorizontal: 16,
-    borderRadius: 3,
+    borderRadius: 5,
+    flexDirection: "row",
+    marginVertical: 10,
+    marginHorizontal: 16,
   },
   buttonText: {
     color: themeColor.white,
     fontWeight: "500",
-    fontSize: 16,
+    fontSize: 18,
     textAlign: "center",
   },
 });
