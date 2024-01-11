@@ -7,4 +7,8 @@ type User = {
   passwordAgain?: string;
 };
 
-export { User };
+interface LoginRespnse extends User {
+  id: string;
+}
+
+export { User, LoginRespnse };

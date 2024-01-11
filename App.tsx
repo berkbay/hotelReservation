@@ -6,6 +6,7 @@ import { persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
 import { thunk, ThunkMiddleware } from "redux-thunk";
 
+import ErrorModal from "./src/components/ErrorModal";
 import Loader from "./src/components/Loader";
 import Router from "./src/navigations/Router";
 import rootReducer from "./src/store";
@@ -20,6 +21,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
+        <ErrorModal />
         <Loader />
         <Router />
       </PersistGate>

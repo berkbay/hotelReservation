@@ -1,8 +1,7 @@
-import { useNavigation } from "@react-navigation/native";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { Image } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Dispatch } from "redux";
 
 import { User } from "./types";
@@ -10,16 +9,10 @@ import Button from "../../components/Button";
 import Header from "../../components/Header";
 import Input from "../../components/Input";
 import { registerUser } from "../../store/actions/userActions";
-import { RootReducerState } from "../../store/types";
+import { RegisterUserAction } from "../../store/types";
 
 const RegisterScreen = () => {
-  const navigation = useNavigation<any>();
-  const dispacth = useDispatch<Dispatch>();
-  const { error } = useSelector((state: RootReducerState) => state?.user);
-
-  useEffect(() => {
-    console.log("error", error);
-  }, [error]);
+  const dispacth: Dispatch<RegisterUserAction> = useDispatch();
 
   const [user, setUser] = useState<User>();
 

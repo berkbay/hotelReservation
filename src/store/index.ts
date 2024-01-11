@@ -2,7 +2,10 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { combineReducers } from "redux";
 import { persistReducer } from "redux-persist";
 
-import { globalLoadingReducer } from "./reducers/globalLoadingReducers";
+import {
+  globalModalReducer,
+  globalLoadingReducer,
+} from "./reducers/globalReducers";
 import { userReducer } from "./reducers/userReducers";
 
 const persistConfig = {
@@ -14,6 +17,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   user: persistReducer(persistConfig, userReducer),
   globalLoading: globalLoadingReducer,
+  globalModal: globalModalReducer,
 });
 
 export default rootReducer;
